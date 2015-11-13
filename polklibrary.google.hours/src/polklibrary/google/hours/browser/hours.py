@@ -23,7 +23,7 @@ class Hours(BrowserView):
         start_max = 'timeMax=' + urllib.quote(strict_rfc3339.timestamp_to_rfc3339_utcoffset(end))
         target = url + '/' + cal_id + '/events?key=' + key + '&' + options + '&' + start_min + '&' + start_max
         
-        h = httplib2.Http(".cache", disable_ssl_certificate_validation=True)
+        h = httplib2.Http(disable_ssl_certificate_validation=True)
         resp, content = h.request(target, "GET")
         feed = json.loads(content)
         return self.make_clean_google_hours_dictionary(feed)
