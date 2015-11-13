@@ -1,0 +1,49 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="polklibrary.google.hours">
+
+  <includeDependencies package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package=".browser" />
+
+
+  <genericsetup:registerProfile
+      name="default"
+      title="polklibrary.google.hours"
+      directory="profiles/default"
+      description="Installs the polklibrary.google.hours add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="polklibrary.google.hours-postInstall"
+      title="polklibrary.google.hours post_install import step"
+      description="Post install import step from polklibrary.google.hours"
+      handler=".setuphandlers.post_install">
+  </genericsetup:importStep>
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="polklibrary.google.hours"
+      directory="profiles/uninstall"
+      description="Uninstalls the polklibrary.google.hours add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="polklibrary.google.hours-uninstall"
+      title="polklibrary.google.hours uninstall import step"
+      description="Import step run during ininstalling polklibrary.google.hours"
+      handler=".setuphandlers.uninstall">
+  </genericsetup:importStep>
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="polklibrary.google.hours-hiddenprofiles" />
+
+</configure>

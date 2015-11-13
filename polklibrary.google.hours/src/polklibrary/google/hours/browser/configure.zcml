@@ -1,0 +1,37 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="polklibrary.google.hours">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="polklibrary.google.hours.interfaces.IPolklibraryGoogleHoursLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="polklibrary.google.hours"
+      directory="static"
+      />
+      
+      
+  <browser:page
+      for="*"
+      name="hours_feed"
+      class=".feeds.Feeds"
+      permission="zope.Public"
+      />
+
+      
+  <browser:page
+      for="*"
+      name="hours_cron"
+      class=".cron.Cron"
+      permission="zope.Public"
+      />
+
+      
+</configure>

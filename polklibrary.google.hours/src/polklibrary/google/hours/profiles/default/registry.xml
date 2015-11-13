@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<registry>
+
+    <record name="polklibrary.google.hours.cache">
+        <field type="plone.registry.field.Dict">
+            <title>Google Hours Data Cache</title>
+            <key_type type="plone.registry.field.TextLine" />
+            <value_type type="plone.registry.field.Dict" />
+        </field>
+        <value>
+        </value>
+    </record>
+    
+    <record name="polklibrary.google.hours.limit">
+        <field type="plone.registry.field.Int">
+            <title>Google Hours Cache Limit</title>
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>7</value>
+    </record>
+     
+    <record name="polklibrary.google.hours.api">
+        <field type="plone.registry.field.TextLine">
+            <title>Google API</title>
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>https://www.googleapis.com/calendar/v3/calendars</value>
+    </record>
+       
+    <record name="polklibrary.google.hours.calendar">
+        <field type="plone.registry.field.TextLine">
+            <title>Google Hours Calendar ID - Make Public</title>
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>1234567890abcdefg@group.calendar.google.com</value>
+    </record>
+
+    <record name="polklibrary.google.hours.key">
+        <field type="plone.registry.field.TextLine">
+            <title>Google Hours Calendar API Key</title>
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>1234567890abcdefg</value>
+    </record>
+
+    <record name="polklibrary.google.hours.options">
+        <field type="plone.registry.field.TextLine">
+            <title>Google Hours Calendar API Options</title>
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>alwaysIncludeEmail=false&amp;orderBy=startTime&amp;singleEvents=true&amp;maxResults=1&amp;showDeleted=true</value>
+    </record>
+    
+</registry>

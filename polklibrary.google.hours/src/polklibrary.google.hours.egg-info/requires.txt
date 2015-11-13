@@ -1,0 +1,10 @@
+plone.api
+setuptools
+strict-rfc3339
+httplib2
+z3c.jbot
+
+[test]
+plone.app.testing
+plone.app.contenttypes
+plone.app.robotframework[debug]

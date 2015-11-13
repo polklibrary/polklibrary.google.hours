@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+      name="polklibrary.google.hours"
+      interface="polklibrary.google.hours.interfaces.IPolklibraryGoogleHoursLayer"
+      />
+</layers>
