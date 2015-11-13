@@ -22,7 +22,6 @@ class Feeds(Hours):
             
         # Get Cached Hours
         d = registry['polklibrary.google.hours.cache']
-        print d 
         for k,v in d.items():
             data.append({k:v})
         data = sorted(data, key=lambda k: k) 
@@ -32,7 +31,7 @@ class Feeds(Hours):
         callback = self.request.form.get('callback','?')
         if fmt == 'xml':
             return self.toXML(data)
-        if fmt == 'jsons':
+        if fmt == 'jsonp':
             return self.toJSONS(data, callback)
         return self.toJSON(data)
         

@@ -22,7 +22,7 @@
       for="*"
       name="hours_feed"
       class=".feeds.Feeds"
-      permission="zope.Public"
+      permission="zope2.View"
       />
 
       
@@ -30,7 +30,7 @@
       for="*"
       name="hours_cron"
       class=".cron.Cron"
-      permission="zope.Public"
+      permission="zope2.View"
       />
 
       
