@@ -21,7 +21,10 @@ class Cron(Hours):
         for i in range(0,limit):
             d = date + datetime.timedelta(days=i)
             registry['polklibrary.google.hours.cache'][d.strftime("%Y-%m-%d")] = self.get_hours_by_date(d)
-            
+        
+        # Needed, force a save of entire dictionary.  Without it will not be persistant.
+        registry['polklibrary.google.hours.cache'] = registry['polklibrary.google.hours.cache']
+        
         return registry['polklibrary.google.hours.cache']
     
     
