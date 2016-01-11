@@ -25,12 +25,18 @@
       permission="zope2.View"
       />
 
-      
   <browser:page
       for="*"
       name="hours_cron"
       class=".cron.Cron"
       permission="zope2.View"
+      />
+
+  <browser:page
+      for="*"
+      name="hours_clear"
+      class=".cron.Clear"
+      permission="cmf.ManagePortal"
       />
 
       

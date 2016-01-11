@@ -26,23 +26,28 @@ class Hours(BrowserView):
         h = httplib2.Http(disable_ssl_certificate_validation=True)
         resp, content = h.request(target, "GET")
         feed = json.loads(content)
+        
         return self.make_clean_google_hours_dictionary(feed)
         
         
     def make_clean_google_hours_dictionary(self, data):
         try:
             if data['items']:
-                return self._make_hour_obj(
-                            data['summary'],
-                            data['description'],
-                            True,
-                            strict_rfc3339.rfc3339_to_timestamp(data['items'][0]['start']['dateTime']),
-                            strict_rfc3339.rfc3339_to_timestamp(data['items'][0]['end']['dateTime']),
-                            data['timeZone']
-                        )
+                hours = []
+                for i in data['items']:
+                    hours.append(self._make_hour_obj(
+                                    self._safe_grab(i, 'summary'),
+                                    self._safe_grab(i, 'description'),
+                                    True,
+                                    strict_rfc3339.rfc3339_to_timestamp(i['start']['dateTime']),
+                                    strict_rfc3339.rfc3339_to_timestamp(i['end']['dateTime']),
+                                    self._safe_grab(i, 'timeZone'),
+                                ))
+                return hours
         except Exception as e: 
-            print str(e)
-        return self._make_hour_obj('','nothing to show',False,'','','')
+            #print "ERROR>>>>>>>> " + str(e)
+            pass
+        return [self._make_hour_obj('','nothing to show',False,'','','')]
 
     def _make_hour_obj(self, title,description,is_open,start,end,tz):
         return {
@@ -54,5 +59,8 @@ class Hours(BrowserView):
             'tz': tz,
         }    
         
-    
+    def _safe_grab(self, d, n, default=''):
+        if n in d:
+            return d[n]
+        return default
     

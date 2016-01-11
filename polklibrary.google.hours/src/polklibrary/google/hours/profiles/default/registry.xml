@@ -5,7 +5,7 @@
         <field type="plone.registry.field.Dict">
             <title>Google Hours Data Cache</title>
             <key_type type="plone.registry.field.TextLine" />
-            <value_type type="plone.registry.field.Dict" />
+            <value_type type="plone.registry.field.List" />
         </field>
         <value>
         </value>
