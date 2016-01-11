@@ -17,7 +17,7 @@ class Hours(BrowserView):
         key = registry['polklibrary.google.hours.key']
         options = registry['polklibrary.google.hours.options']
         
-        date = date.replace(hour=2, minute=0, seconds=0)
+        date = date.replace(hour=2, minute=0, second=0)
         start = time.mktime(date.timetuple())
         end =  time.mktime((date + datetime.timedelta(days=1)).timetuple())
         start_min = 'timeMin=' + urllib.quote(strict_rfc3339.timestamp_to_rfc3339_utcoffset(start))
